@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+  <main>
+    <section class="calculator">
+      <div class="showArea">
+        <div class="formulaArea"><span class="js-formula formula"></span></div>
+        <div class="resultArea"><span class="js-result result"></span></div>
+      </div>
+      <div class="keyboardArea">
+        <div class="d-flex jc-between">
+          <div class="js-numberBtn numberBtn d-flex jc-between flex-wrap">
+            <button type="button" data-number="7">7</button>
+            <button type="button" data-number="8">8</button>
+            <button type="button" data-number="9">9</button>
+            <button type="button" data-number="4">4</button>
+            <button type="button" data-number="5">5</button>
+            <button type="button" data-number="6">6</button>
+            <button type="button" data-number="1">1</button>
+            <button type="button" data-number="2">2</button>
+            <button type="button" data-number="3">3</button>
+            <button type="button" data-number="0">0</button>
+            <button type="button" data-number="00">00</button>
+            <button type="button" data-number=".">.</button>
+          </div>
+          <div class="js-calculatingBtn calculatingBtn">
+            <button type="button" data-calculating="divided" data-text="÷">÷</button>
+            <button type="button" data-text="×" data-calculating="times">×</button>
+            <button type="button" data-calculating="add" data-text="+">+</button>
+            <button type="button" data-calculating="minus" data-text="-">-</button>
+          </div>
+        </div>
+        <div class="js-functionKeyBtn functionKeyBtn d-flex jc-between">
+          <button type="button" data-functionKey="reset">AC</button>
+          <button type="button" data-functionKey="delete">
+            <span class="material-icons-outlined d-block" data-functionKey="delete">
+              backspace
+              </span>
+          </button>
+          <button class="equal" type="button" data-functionKey="equal">=</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/all.js"></script>
+</body>
+</html>

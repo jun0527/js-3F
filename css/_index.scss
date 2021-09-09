@@ -1,0 +1,82 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.calculator {
+  width: 350px;
+  margin: 100px auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.showArea {
+  background: #041936;
+  padding: 16px 16px 8px 16px;
+  text-align: right;
+  .formulaArea {
+    color: #00c4ff;
+    line-height: 19px;
+    height: 19px;
+    position: relative;
+  }
+  .formula {
+    position: absolute;
+    right: 0;
+  }
+  .resultArea {
+    color: white;
+    font-size: 56px;
+    height: 66px;
+    position: relative;
+  }
+  .result {
+    position: absolute;
+    right: 0;
+  }
+}
+.keyboardArea {
+  background: #062145;
+  padding: 16px 8px;
+  button {
+    width: 72px;
+    height: 64px;
+    display: block;
+    background: #062145;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    border: none;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    &:hover:not(.equal) {
+      background: rgba($color: #fff, $alpha: 0.3);
+    }
+  }
+}
+.numberBtn {
+  margin-right: 16px;
+  button {
+    font-weight: 300;
+  }
+}
+.calculatingBtn {
+  button {
+    background: #041936;
+  }
+}
+.functionKeyBtn {
+  button {
+    margin-bottom: 0;
+    color: #00C4FF;
+  }
+  .equal {
+    width: 155px;
+    color: white;
+    background: linear-gradient(90deg, #00C4FF 0%, #6C00FF 100%);
+    text-align: right;
+    padding: 0 30px;
+    margin-left: 5px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

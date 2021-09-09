@@ -1,0 +1,182 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
+.jc-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.jc-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ai-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.calculator {
+  width: 350px;
+  margin: 100px auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.showArea {
+  background: #041936;
+  padding: 16px 16px 8px 16px;
+  text-align: right;
+}
+
+.showArea .formulaArea {
+  color: #00c4ff;
+  line-height: 19px;
+  height: 19px;
+  position: relative;
+}
+
+.showArea .formula {
+  position: absolute;
+  right: 0;
+}
+
+.showArea .resultArea {
+  color: white;
+  font-size: 56px;
+  height: 66px;
+  position: relative;
+}
+
+.showArea .result {
+  position: absolute;
+  right: 0;
+}
+
+.keyboardArea {
+  background: #062145;
+  padding: 16px 8px;
+}
+
+.keyboardArea button {
+  width: 72px;
+  height: 64px;
+  display: block;
+  background: #062145;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.keyboardArea button:hover:not(.equal) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.numberBtn {
+  margin-right: 16px;
+}
+
+.numberBtn button {
+  font-weight: 300;
+}
+
+.calculatingBtn button {
+  background: #041936;
+}
+
+.functionKeyBtn button {
+  margin-bottom: 0;
+  color: #00C4FF;
+}
+
+.functionKeyBtn .equal {
+  width: 155px;
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#00C4FF), to(#6C00FF));
+  background: linear-gradient(90deg, #00C4FF 0%, #6C00FF 100%);
+  text-align: right;
+  padding: 0 30px;
+  margin-left: 5px;
+}
+
+.functionKeyBtn .equal:hover {
+  opacity: 0.5;
+}
+/*# sourceMappingURL=all.css.map */

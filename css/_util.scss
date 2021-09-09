@@ -1,0 +1,26 @@
+.d {
+  &-flex {
+    display: flex;
+  }
+  &-block {
+    display: block;
+  }
+}
+.jc {
+  &-between {
+    justify-content: space-between;
+  }
+  &-center {
+    justify-content: center;
+  }
+}
+.ai {
+  &-center {
+    align-items: center;
+  }
+}
+.flex {
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
