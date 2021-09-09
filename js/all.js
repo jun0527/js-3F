@@ -19,6 +19,9 @@ numberArea.addEventListener('click', (e) => {
   } else if (resultTxt === '' && e.target.getAttribute('data-number') === '00') {
     //輸入的第1個數字不得為00
     return;
+  } else if (resultTxt === '' && e.target.getAttribute('data-number') === '.') {
+    //輸入的第1個數字不得為.
+    return;
   } else if (resultTxt !== '' && Number(resultTxt) === 0 && e.target.getAttribute('data-number') === '0') {
     //當輸入的第1個數字為0時不能再輸入0
     return;
