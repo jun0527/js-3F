@@ -22,6 +22,20 @@ numberArea.addEventListener('click', (e) => {
   } else if (resultTxt === '' && e.target.getAttribute('data-number') === '.') {
     //輸入的第1個數字不得為.
     return;
+  } else if (resultTxt !== '' && resultTxt.split('').pop() ==='.') {
+    if (e.target.getAttribute('data-number') === '.') {
+      return;
+    }
+    //當前面字為'.'時，可以輸入數字
+    resultTxt += num;
+    formulaTxt += num;
+  } else if (resultTxt !== '' && resultTxt.split('.').length === 2) {
+    if (e.target.getAttribute('data-number') === '.') {
+      return;
+    }
+    //當前面數字有小數點時，可以輸入數字
+    resultTxt += num;
+    formulaTxt += num;
   } else if (resultTxt !== '' && Number(resultTxt) === 0 && e.target.getAttribute('data-number') === '0') {
     //當輸入的第1個數字為0時不能再輸入0
     return;
@@ -71,10 +85,13 @@ calculatingArea.addEventListener('click', (e) => {
   } else if (calcStatus !== '' && resultTxt === '') {
     //換運算符號
     calcStatus = e.target.getAttribute('data-calculating');
-    if (formulaArr[formulaArr.length-1] === '') {
-      formulaArr.splice(-2, 2);
-    } else {
-      formulaArr.pop();
+    switch (formulaArr[formulaArr.length-1]) {
+      case '':
+        formulaArr.splice(-2, 2);
+        break;
+      default:
+        formulaArr.pop();
+        break;
     }
     formulaArr.push(e.target.getAttribute('data-text'));
   } else if (calcStatus !== '' && resultTxt !== '') {
@@ -93,47 +110,56 @@ calculatingArea.addEventListener('click', (e) => {
 })
 //按下功能鍵
 functionKeyArea.addEventListener('click', (e) => {
-  if (e.target.getAttribute('data-functionKey') === null) {
-    return;
-  } else if (e.target.getAttribute('data-functionKey') === 'reset') {
-    reset();
-  } else if (e.target.getAttribute('data-functionKey') === 'delete') {
-    if (resultTxt === '' && numberA !== '') {
-      result.textContent = 0;
-    } else if (resultTxt !== '') {
-      resultTxt = resultTxt.substring(0,resultTxt.length-1);
-      formulaTxt = formulaTxt.substring(0,formulaTxt.length-1);
-      formula.textContent = formulaTxt;
+  switch (e.target.getAttribute('data-functionKey')) {
+    case null:
+      break;
+    case 'reset':
+      reset();
+      break;
+    case 'delete':
+      if (resultTxt === '' && numberA !== '') {
+        result.textContent = 0;
+      } else if (resultTxt !== '') {
+        resultTxt = resultTxt.substring(0,resultTxt.length-1);
+        formulaTxt = formulaTxt.substring(0,formulaTxt.length-1);
+        formula.textContent = formulaTxt;
+        result.textContent = toCurrency(resultTxt);
+      }
+      break;
+    case 'equal':
+      if (calcStatus === 'equal' || calcStatus === '') {
+        return;
+      }
+      formulaArr = formulaTxt.split(' ');
+      formulaArr.push('=');
+      numberB = Number(resultTxt);
+      calc(calcStatus);
+      calcStatus = 'equal';
       result.textContent = toCurrency(resultTxt);
-    }
-  } else if (e.target.getAttribute('data-functionKey') === 'equal') {
-    if (calcStatus === 'equal' || calcStatus === '') {
-      return;
-    }
-    formulaArr = formulaTxt.split(' ');
-    formulaArr.push('=');
-    numberB = Number(resultTxt);
-    calc(calcStatus);
-    calcStatus = 'equal';
-    result.textContent = toCurrency(resultTxt);
-    numberA = Number(resultTxt);
-    formulaTxt = formulaArr.join(' ');
-    formula.textContent = formulaTxt;
-    resultTxt = '';
-    numberB = '';
+      numberA = Number(resultTxt);
+      formulaTxt = formulaArr.join(' ');
+      formula.textContent = formulaTxt;
+      resultTxt = '';
+      numberB = '';
+      break;
   }
 })
 
 //計算
 function calc(status) {
-  if (status === 'divided') {
-    resultTxt = decimalPoint(numberA / numberB);
-  } else if (status === 'times') {
-    resultTxt = decimalPoint(numberA * numberB);
-  } else if (status === 'add') {
-    resultTxt = decimalPoint(numberA + numberB);
-  } else if (status === 'minus') {
-    resultTxt = decimalPoint(numberA - numberB);
+  switch (status) {
+    case 'divided':
+      resultTxt = decimalPoint(numberA / numberB);
+      break;
+    case 'times':
+      resultTxt = decimalPoint(numberA * numberB);
+      break;
+    case 'add':
+      resultTxt = decimalPoint(numberA + numberB);
+      break;
+    case 'minus':
+      resultTxt = decimalPoint(numberA - numberB);
+      break;
   }
 }
 
@@ -144,7 +170,7 @@ function decimalPoint(num) {
 
 //千分位
 function toCurrency(num){
-  var parts = num.toString().split('.');
+  let parts = num.toString().split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return parts.join('.');
 }
